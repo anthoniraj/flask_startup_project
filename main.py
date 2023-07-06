@@ -5,6 +5,12 @@ from auth import entry, bcrypt, login_manager
 from users import usr
 from models import db, User
 
+'''
+    Author: Anthoniraj Amalanathan
+    Date: Last Modified: 06-Jul-2023
+    Description: Main Flask App
+'''
+
 def create_app(object_name):
     app = Flask(__name__)      
 

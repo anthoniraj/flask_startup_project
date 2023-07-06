@@ -3,6 +3,12 @@ from flask_login import LoginManager, login_user, logout_user, login_required
 from flask_bcrypt import Bcrypt
 from models import User
 
+'''
+    Author: Anthoniraj Amalanathan
+    Date: Last Modified: 05-Jul-2023
+    Description: Login Related Scripts
+'''
+
 entry = Blueprint('auth', __name__, template_folder='templates')
 bcrypt = Bcrypt()
 login_manager = LoginManager()

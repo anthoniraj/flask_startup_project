@@ -1,5 +1,10 @@
 from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
+'''
+    Author: Anthoniraj Amalanathan
+    Date: Last Modified: 05-Jul-2023
+    Description: ALL Database Models for ORM 
+'''
 
 db = SQLAlchemy()
 
