@@ -36,6 +36,7 @@
 ![Datatable](./static/images/02_bs5_with_datatable.png)
 - Horitonzal Navbar with Dropdown Menus
 ![Navbar](./static/images/03_logout.png)
+- Simple HTML Flask Template System
 
 ## Pipeline
 - DB CRUD Operations with ORM and Forms
