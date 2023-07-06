@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, session
 from flask_login import LoginManager, login_user, logout_user, login_required
 from flask_bcrypt import Bcrypt
 from models import User
-
+from utils import log_user_activity
 '''
     Author: Anthoniraj Amalanathan
     Date: Last Modified: 05-Jul-2023
@@ -25,10 +25,12 @@ def login():
         #print(User.query.all())
         user = User.query.filter_by(username=username).first()
         if user:   
-            print(user)              
+            #print(user)              
             if bcrypt.check_password_hash(user.password, password):  
                 session['name'] = user.name
-                login_user(user)                 
+                session['user_id'] = user.id                
+                login_user(user)
+                log_user_activity(session['user_id'], "login success", request.remote_addr)
                 return render_template('dashboard.html', name = session['name'])
             else:
                 return render_template('login.html', msg="Invalid Credentials!")
@@ -48,10 +50,12 @@ def user_loader(user_id):
 @entry.route("/dashboard")
 @login_required
 def dashboard():    
+    #log_user_activity(session['user_id'], "dashboard accessed", request.remote_addr)
     return render_template('dashboard.html', name = session['name'])
 
 @entry.route("/logout")
 @login_required
 def logout():
+    log_user_activity(session['user_id'], "logout success", request.remote_addr)
     logout_user()
     return render_template('login.html', msg="Please login to continue.")
