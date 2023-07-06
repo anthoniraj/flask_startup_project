@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Anthoniraj Amalanathan">
+    <title>Church Management System (CMS)</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="static/css/navbar-top-fixed.css" rel="stylesheet">
+    {% block header %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top" data-bs-theme="dark" style="background-color: rgb(47,43,91);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Sacret Heart Church</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-shield-lock-fill"></i>                                    
+                            <span>CMS Admin</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/form"><i class="bi bi-person-check-fill"></i>
+                                <span style="padding-right: 8px;">Users</span></a></li>
+                            <li><a class="dropdown-item" href="/table"><i class="bi bi-calendar-event"></i>
+                                <span style="padding-right: 8px;">Events</span></a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-file-text"></i><span style="padding-right: 8px;">
+                                Certificates</span></a></li>
+                        </ul>           
+                    </li>  
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>                                    
+                            <span>{{ name }}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person-check-fill"></i>
+                                <span style="padding-right: 8px;">Profile</span></a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-calendar-event"></i>
+                                <span style="padding-right: 8px;">Activity Logs</span></a></li>
+                            <!-- <li>
+                                <hr class="dropdown-divider">
+                            </li> -->
+                            <li><a class="dropdown-item" href="/logout"><i class="bi bi-file-text"></i><span style="padding-right: 8px;">
+                                Logout</span></a></li>
+                        </ul>                      
+                    </li> 
+
+                </ul>            
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    {% block footer %}{% endblock %}
+    <script>
+        history.pushState(null, document.title, location.href);
+        window.addEventListener('popstate', function (event) {
+            history.pushState(null, document.title, location.href);
+        });
+    </script>
+
+</body>
+
+</html>

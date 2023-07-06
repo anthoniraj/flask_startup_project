@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <link href="static/css/simple-datatables.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Simple Datatable
+    </div>
+    <div class="card-body">
+        <table class="table table-striped" id="table1">
+            <thead>
+                <tr>
+                    <th data-sortable="" style="width: 14.2709%;"><a href="#" class="dataTable-sorter">Name</a></th>
+                    <th data-sortable="" style="width: 48.8625%;"><a href="#" class="dataTable-sorter">Email</a></th>
+                    <th data-sortable="" style="width: 13.6505%;"><a href="#" class="dataTable-sorter">Phone</a></th>
+                    <th data-sortable="" style="width: 17.5284%;"><a href="#" class="dataTable-sorter">City</a></th>
+                    <th data-sortable="" style="width: 13.4953%;"><a href="#" class="dataTable-sorter">Status</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Graiden</td>
+                    <td>vehicula.aliquet@semconsequat.co.uk</td>
+                    <td>076 4820 8838</td>
+                    <td>Offenburg</td>
+                    <td>
+                        <span class="badge bg-success">Active</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dale</td>
+                    <td>fringilla.euismod.enim@quam.ca</td>
+                    <td>0500 527693</td>
+                    <td>New Quay</td>
+                    <td>
+                        <span class="badge bg-success">Active</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nathaniel</td>
+                    <td>mi.Duis@diam.edu</td>
+                    <td>(012165) 76278</td>
+                    <td>Grumo Appula</td>
+                    <td>
+                        <span class="badge bg-danger">Inactive</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Darius</td>
+                    <td>velit@nec.com</td>
+                    <td>0309 690 7871</td>
+                    <td>Ways</td>
+                    <td>
+                        <span class="badge bg-success">Active</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Oleg</td>
+                    <td>rhoncus.id@Aliquamauctorvelit.net</td>
+                    <td>0500 441046</td>
+                    <td>Rossignol</td>
+                    <td>
+                        <span class="badge bg-success">Active</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kermit</td>
+                    <td>diam.Sed.diam@anteVivamusnon.org</td>
+                    <td>(01653) 27844</td>
+                    <td>Patna</td>
+                    <td>
+                        <span class="badge bg-success">Active</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jermaine</td>
+                    <td>sodales@nuncsit.org</td>
+                    <td>0800 528324</td>
+                    <td>Mold</td>
+                    <td>
+                        <span class="badge bg-success">Active</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ferdinand</td>
+                    <td>gravida.molestie@tinciduntadipiscing.org</td>
+                    <td>(016977) 4107</td>
+                    <td>Marlborough</td>
+                    <td>
+                        <span class="badge bg-danger">Inactive</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kuame</td>
+                    <td>Quisque.purus@mauris.org</td>
+                    <td>(0151) 561 8896</td>
+                    <td>Tresigallo</td>
+                    <td>
+                        <span class="badge bg-success">Active</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deacon</td>
+                    <td>Duis.a.mi@sociisnatoquepenatibus.com</td>
+                    <td>07740 599321</td>
+                    <td>Karapınar</td>
+                    <td>
+                        <span class="badge bg-success">Active</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}    
+    <script src="static/js/simple-datatables.js"></script>
+    <script>
+        new simpleDatatables.DataTable("#table1",{
+            searchable: true,
+            truncatePager: true,
+            buttons: "csv",
+        });
+    </script>
+{% endblock %}
