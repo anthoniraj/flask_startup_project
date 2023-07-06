@@ -29,5 +29,13 @@
     - http://127.0.0.1:5000
 - Use the login credetianls at the time of creating user account
 
-### Pipeline
+## Features
+- Authentication (Login and Logout Page with users table (ORM) )
+![Login](./static/images/01_login_screen.png)
+- Bootstrap5 Frontend Pages with responsive forms and datatables
+![Datatable](./static/images/02_bs5_with_datatable.png)
+- Horitonzal Navbar with Dropdown Menus
+![Navbar](./static/images/03_logout.png)
+
+## Pipeline
 - DB CRUD Operations with ORM and Forms
