@@ -37,6 +37,9 @@
 - Horitonzal Navbar with Dropdown Menus
 ![Navbar](./static/images/03_logout.png)
 - Simple HTML Flask Template System
-
-## Pipeline
 - DB CRUD Operations with ORM and Forms
+- User Add Screen
+    ![Navbar](./static/images/04_add_user.png)
+- User Details, Update, and Delete
+    ![Navbar](./static/images/05_crud.png
+
