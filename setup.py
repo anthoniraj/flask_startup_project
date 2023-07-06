@@ -14,7 +14,7 @@ app = create_app('dev')
 def get_user_details():
     user = User()
     user.name = input("Enter Fullname: ")
-    user.username = input("Enter Fullname: ")
+    user.username = input("Enter username: ")
     password = getpass(prompt='Enter Password: ')
     user.password = generate_password_hash(password=password)
     user.email = input("Enter Email: ")

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card border-info mb-2" style="max-width: 80rem;">
+    <div class="card-header bg-success text-white">Update User <a class="btn btn-sm btn-info"
+            href="/get_all_users">Go Back</a></div>
+    <div class="card-body">
+        <form action="/user_update" method="post">
+            <div class="row mb-3">
+                <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Full Name</label>
+                <div class="col-sm-9">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                    <input type="hidden" name="id" value="{{ user.id }}" />
+                    <input type="text" class="form-control form-control-sm" name="name" required="required"
+                        pattern="[A-Za-z ]{3,}" oninvalid="this.setCustomValidity('Please enter your name')"
+                        oninput="setCustomValidity('')" title="Name should be minimum of 3 characters" value = "{{ user.name }}">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control form-control-sm" name="email" required
+                        oninvalid="this.setCustomValidity('Please enter your email')" oninput="setCustomValidity('')"
+                        title="Enter valid email ID" value="{{ user.email }}">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Mobile</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control form-control-sm" name="mobile" required pattern="[0-9]{10}"
+                        oninvalid="this.setCustomValidity('Please enter your Mobile Number')"
+                        oninput="setCustomValidity('')" title="Mobile Number shoud be 10 digits Indian Number"
+                        value="{{ user.mobile}}">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-12 text-right">
+                    <button type="submit" class="btn btn-primary">Update User</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}
