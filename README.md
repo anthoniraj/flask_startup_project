@@ -28,3 +28,6 @@
 - Now, Navigate the following URL in web browser
     - http://127.0.0.1:5000
 - Use the login credetianls at the time of creating user account
+
+### Pipeline
+- DB CRUD Operations with ORM and Forms
