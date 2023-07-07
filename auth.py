@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, session
 from flask_login import LoginManager, login_user, logout_user, login_required
 from flask_bcrypt import Bcrypt
-from models import User
+from models import User, UserActivity
 from utils import log_user_activity
 '''
     Author: Anthoniraj Amalanathan
@@ -53,9 +53,12 @@ def dashboard():
     #log_user_activity(session['user_id'], "dashboard accessed", request.remote_addr)
     return render_template('dashboard.html', name = session['name'])
 
-@entry.errorhandler(401)
-def custom_401(error):
-    return render_template('401.html')
+@entry.route("/activity_logs")
+@login_required
+def activity_logs():
+    id = session['user_id']
+    logs = UserActivity.query.filter_by(user_id=id).order_by(UserActivity.timestamp.desc())
+    return render_template('activity_logs.html', name = session['name'], logs = logs)
 
 @entry.route("/logout")
 @login_required

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+<div class="card ms-2 me-2">
+  <div class="card-header">
+    <h5>Activity Logs for User: {{ name }} </h5>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped" id="userTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Activity</th>
+          <th>Timestamp</th>
+          <th>IP Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for log in logs %}
+        <tr>
+          <td>{{log.user_id}}</td>
+          <td>{{log.activity}}</td>
+          <td>{{log.timestamp}}</td>
+          <td>{{log.ipaddress}}</td> 
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+</main>
+{% endblock %}
+
+{% block footer %}
+<script>
+  $('#userTable').DataTable({
+    responsive: true
+  });
+
+</script>
+{% endblock %}

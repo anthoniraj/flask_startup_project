@@ -33,6 +33,10 @@ def create_app(object_name):
         session.permanent = True
         app.permanent_session_lifetime = timedelta(minutes=15)
     
+    @app.errorhandler(401)
+    def custom_401(error):
+        return render_template('401.html')
+    
     return app
 
 if __name__ == '__main__':

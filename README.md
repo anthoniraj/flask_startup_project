@@ -42,4 +42,7 @@
     ![Navbar](./static/images/04_add_user.png)
 - User Details, Update, and Delete
     ![Navbar](./static/images/05_crud.png)
+- Session Management with Idle Timeout
+- Unauthorised Access Control
+- User Activity Logs Interface
 
