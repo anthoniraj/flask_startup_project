@@ -1,74 +1,51 @@
 {% extends 'base.html' %}
 
-{% block header %}
-<link href="static/css/simple-datatables.css" rel="stylesheet">
-{% endblock %}
-
 {% block content %}
 <div class="card">
-    <div class="card-header">
-        CMS Users <a class="btn btn-success" href="/user_add">Add New User</a>
-    </div>
-    <div class="card-body">
-        <table class="table table-striped" id="userTable">
-            <thead> 
-                <tr>
-                    <th data-sortable=""><a href="#" class="dataTable-sorter">ID</a></th>
-                    <th data-sortable=""><a href="#" class="dataTable-sorter">Name</a></th>
-                    <th data-sortable=""><a href="#" class="dataTable-sorter">Email</a></th>
-                    <th data-sortable=""><a href="#" class="dataTable-sorter">Mobile</a></th>
-                    <th data-sortable=""><a href="#" class="dataTable-sorter">Username</a></th>
-                    <th data-sortable=""><a href="#" class="dataTable-sorter">Actions</a></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for user in users %}
-                <tr>
-                    <td>{{user.id}}</td>
-                    <td>{{user.name}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.mobile}}</td>
-                    <td>{{user.username}}</td>
-                    <td>
-                        <a href="/user_update?id={{user.id}}"><i class="bi bi-pencil-square text-info"></i></a>
-                        <span class="me-4"></span>
-                        <a href="/user_delete?id={{user.id}}" onclick="return confirm('Are you sure you want to delete this user?');" data-toggle="modal"><i class="bi bi-trash text-danger"></i></a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
-<!-- Confirm Modal -->
-<div class="modal fade" id="userDeleteConfirmBox" tabindex="-1" role="dialog" aria-labelledby="userDeleteConfirmBoxLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="userDeleteConfirmBoxLabel">Delete User</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Do you really want to delete this User?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Yes Delete!</button>
-        </div>
-      </div>
-    </div>
+  <div class="card-header">
+    CMS Users <a class="btn btn-success" href="/user_add">Add New User</a>
   </div>
+  <div class="card-body">
+    <table class="table table-striped" id="userTable">
+      <thead>
+        <tr>
+          <th>ID</a></th>
+          <th>Name</a></th>
+          <th>Email</a></th>
+          <th>Mobile</a></th>
+          <th>Username</a></th>
+          <th>Actions</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.mobile}}</td>
+          <td>{{user.username}}</td>
+          <td>
+            <a href="/user_update?id={{user.id}}"><i class="bi bi-pencil-square text-info"></i></a>
+            <span class="me-4"></span>
+            <a href="/user_delete?id={{user.id}}"
+              onclick="return confirm('Are you sure you want to delete this user?');" data-toggle="modal"><i
+                class="bi bi-trash text-danger"></i></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</div>
 {% endblock %}
 
 {% block footer %}
-<script src="static/js/simple-datatables.js"></script>
 <script>
-    new simpleDatatables.DataTable("#userTable", {
-        searchable: true,
-        truncatePager: true,
-        buttons: "csv",
-    });
+  $('#userTable').DataTable({
+    responsive: true
+  });
+
 </script>
 {% endblock %}

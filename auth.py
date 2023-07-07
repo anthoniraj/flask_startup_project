@@ -53,6 +53,10 @@ def dashboard():
     #log_user_activity(session['user_id'], "dashboard accessed", request.remote_addr)
     return render_template('dashboard.html', name = session['name'])
 
+@entry.errorhandler(401)
+def custom_401(error):
+    return render_template('401.html')
+
 @entry.route("/logout")
 @login_required
 def logout():
