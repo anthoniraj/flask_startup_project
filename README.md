@@ -45,4 +45,5 @@
 - Session Management with Idle Timeout
 - Unauthorised Access Control
 - User Activity Logs Interface
+    ![activity](./static/images/06_activity_logs.png)
 
